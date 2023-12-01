@@ -10,7 +10,11 @@
 #include <string>
 #include <regex>
 #include <vector>
+#include <unordered_map>
+#include <cctype>
 
+int findFirstDigit(const std::string& str);
+int findLastDigit(const std::string& str);
 int day1();
 
 

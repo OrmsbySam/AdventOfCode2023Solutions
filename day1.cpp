@@ -3,45 +3,52 @@
 //
 #include "day1.h"
 
+int findFirstDigit(const std::string& str) {
+    for (char ch : str) {
+        if (isdigit(ch)) {
+            return ch - '0';
+        }
+    }
+    return -1;  // No digit found
+}
+
+int findLastDigit(const std::string& str) {
+    for (auto it = str.rbegin(); it != str.rend(); ++it) {
+        if (isdigit(*it)) {
+            return *it - '0';
+        }
+    }
+    return -1; // No digit found
+}
+
 int day1() {
-    std::string filename = "../day1.txt";
+    const std::string filename = "../day1.txt";
     std::ifstream in(filename);
     std::string buffer;
 
     std::vector<int> numPairs;
-    std::regex pattern("\\d");
-
 
     if (in.is_open()) {
         while (std::getline(in, buffer)) {
-            std::sregex_iterator iterator(buffer.begin(), buffer.end(), pattern);
-            std::sregex_iterator end;
+            int firstNum = findFirstDigit(buffer);
+            int lastNum = findLastDigit(buffer);
 
-            if(iterator == end) {
-                // NO DIGITS FOUND
+            if (firstNum == -1 || lastNum == -1) {
+                // No digits found in this line
+                // Not possible but might as well account for
+                continue;
             }
 
-            int firstNum = std::stoi(iterator->str());
-            int lastNum;
-
-            for (; iterator != end; ++iterator) {
-                lastNum = std::stoi(iterator->str());
-            }
-//            std::cout << buffer << std::endl;
-//            std::cout << "First Num: " << firstNum * 10 << std::endl;
-//            std::cout << "Last Num: " << lastNum << std::endl;
             numPairs.push_back((firstNum * 10) + lastNum);
         }
         in.close();
 
         int total = 0;
-        for(int num : numPairs) {
+        for (int num : numPairs) {
             total += num;
         }
 
-        std::cout << "Sum of all calibration values: " << total; //55488
-
-
+        std::cout << "Part 1 - Sum of all calibration values: " << total << std::endl;
 
     } else {
         std::cout << "Error opening file: " << filename << std::endl;
