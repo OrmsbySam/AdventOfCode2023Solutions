@@ -1,0 +1,3 @@
+C:/Users/ormsb/CLionProjects/AOC2023/cmake-build-debug/CMakeFiles/AOC2023.dir
+C:/Users/ormsb/CLionProjects/AOC2023/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ormsb/CLionProjects/AOC2023/cmake-build-debug/CMakeFiles/rebuild_cache.dir
