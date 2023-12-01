@@ -14,7 +14,8 @@
 #include <cctype>
 
 int findDigits(const std::string& str);
-int day1();
+int day1Part1();
+int day1Part2();
 
 
 

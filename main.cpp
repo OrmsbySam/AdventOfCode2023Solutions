@@ -3,5 +3,6 @@
 
 
 int main() {
-    day1();
+    day1Part1();
+    day1Part2();
 }
